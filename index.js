@@ -14,7 +14,7 @@ app.use('/img', express.static('img'));
 
 app.get('/', async (req, res) => {
     const imageUrl = req.query.img;
-    const imageName = `./img/${Date.now()}_${getRandomInt(10)}.jpg`;
+    const imageName = `./img/${Date.now()}_${getRandomInt(100)}.jpg`;
     const file = fs.createWriteStream(imageName);
 
     console.log(imageUrl);
