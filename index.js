@@ -88,12 +88,12 @@ app.get('/', async (req, res) => {
         }
 
         let imageBase64 = `data:${fileType};base64,${Buffer.from(blob).toString("base64")}`;
-        console.log(imageBase64);
+        // console.log(imageBase64);
 
         // generate file name
         const imageName = `${Date.now()}_${getRandomInt(100)}.jpg`;
         const resultUrl = `${req.protocol}://${req.get('host')}/img/${imageName}`;
-        console.log(imageName);
+        // console.log(imageName);
         console.log(resultUrl);
 
         // store file into database
