@@ -1,8 +1,10 @@
 const dotenv = require('dotenv');
 dotenv.config();
 const express = require('express');
+const cors = require("cors");
 const db = require('./database');
 const app = express();
+app.use(cors());
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
@@ -52,7 +54,7 @@ app.use('/img/:imgFile', async (req, res) => {
 });
 
 app.get('/', async (req, res) => {
-    const allowFileType = ['image/jpg', 'image/png'];
+    const allowFileType = ['image/jpg', 'image/jpeg', 'image/png'];
 
     let imageUrl = req.query.img;
     console.log(imageUrl);
