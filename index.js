@@ -91,9 +91,9 @@ app.get('/', async (req, res) => {
         // console.log(imageBase64);
 
         // generate file name
-        console.log(`test: ${req.headers['x-forwarded-proto']}`);
         const imageName = `${Date.now()}_${getRandomInt(100)}.jpg`;
-        const resultUrl = `${req.protocol}://${req.get('host')}/img/${imageName}`;
+        var protocol = req.headers['x-forwarded-proto'] || req.protocol;
+        const resultUrl = `${protocol}://${req.get('host')}/img/${imageName}`;
         // console.log(imageName);
         console.log(resultUrl);
 
